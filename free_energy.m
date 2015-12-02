@@ -15,18 +15,16 @@ T2 = (N/2)*(log(la_0) + digamma(a_N) - log(b_N) - log(2*pi)) - 0.5*la_0*(a_N/b_N
 T3 = a_0*log(b_0)-gammaln(a_0) + (a_0 - 1)*(digamma(a_N) - log(b_N)) - b_0*(a_N/b_N);
 
 % <ln q(mu)>_q_mu
-T4 = (0.5)*log(2*pi*exp(1)*(1/la_N));
+T4 = 0.5 + 0.5*log(2*pi/la_N);
 
 % <ln q(tau) >_q_tau
 T5 = a_N - log(b_N) + gammaln(a_N) + (1-a_N)*digamma(a_N);
 
-% <ln q(mu) >_q(mu)
-T6 = 0.5 + 0.5*log(2*pi/la_N);
-
 % F = < ln p(D|mu,tau) + ln p(mu|tau) + ln(p(tau)) - ln q(mu) - ln q(tau) >_q
-
+% Likelihood
 J = T1;
 
+% KL (constraint)
 H = T2 + T3 + T4 - T5 - T6;
 
 F = J + (1/be)*H;
