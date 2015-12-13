@@ -1,4 +1,4 @@
-function [F,mu_N,la_N,a_N,b_N] =vb(x ,be,mu_0,la_0,a_0,b_0);
+function [F,mu_N,la_N,a_N,b_N] =vb(x,be,mu_0,la_0,a_0,b_0)
 
 max_iter = 100;
 N = length(x);
@@ -23,8 +23,8 @@ for i = 1:max_iter
     %a_N = (a_0 + N/2);
     
     
-    b_N = b_0 + (1/2)*(be*sum((x-mu_N).^2) + la_0*((mu_N-mu_0)^2));
-    %b_N = b_0 + (1/2)*(sum((x-mu_N).^2) + la_0*((mu_N-mu_0)^2));
+    %b_N = b_0 + (1/2)*(be*sum((x-mu_N).^2) + la_0*((mu_N-mu_0)^2));
+    b_N = b_0 + (1/2)*(sum((x-mu_N).^2) + la_0*((mu_N-mu_0)^2));
     
 
 %     la_N = (la_0 + N)*a_N/b_N;
