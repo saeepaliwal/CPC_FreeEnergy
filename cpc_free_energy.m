@@ -1,4 +1,4 @@
-%% Explore dynamics of beta
+% Explore dynamics of beta
 clear
 
 % Define priors
@@ -10,6 +10,7 @@ la_0 = 1;
 % Observed data
 N = 10;
 x = normrnd(5,0.5,10,1);
+
 alphas = [0.5 15 100];
 
 % Put data and sufficient statistics into F function
